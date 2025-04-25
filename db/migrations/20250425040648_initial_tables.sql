@@ -1,3 +1,4 @@
+-- +goose Up
 CREATE TABLE employees (
     id BIGSERIAL PRIMARY KEY,
     name TEXT,
@@ -59,3 +60,11 @@ CREATE TABLE maintenance_logs (
     updated_at TIMESTAMPTZ,
     deleted_at TIMESTAMPTZ
 );
+
+
+-- +goose Down
+DROP TABLE IF EXISTS maintenance_logs;
+DROP TABLE IF EXISTS trucks;
+DROP TABLE IF EXISTS tools;
+DROP TABLE IF EXISTS suppliers;
+DROP TABLE IF EXISTS employees;

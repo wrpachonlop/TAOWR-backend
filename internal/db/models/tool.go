@@ -9,6 +9,7 @@ import (
 type Tool struct {
 	gorm.Model
 	Name             string
+	Brand            string
 	Description      string
 	Status           string
 	NeedsMaintenance bool
