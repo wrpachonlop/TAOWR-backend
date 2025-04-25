@@ -10,5 +10,10 @@ func RegisterRoutes(r *gin.Engine) {
 	api := r.Group("/api")
 	{
 		api.GET("/health", handlers.HealthCheck)
+		api.GET("/employees", handlers.GetEmployees)
+		api.POST("/employees", handlers.CreateEmployee)
+
+		api.GET("/tools", handlers.GetTools)
+		api.POST("/tools", handlers.CreateTool)
 	}
 }
