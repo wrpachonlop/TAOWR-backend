@@ -12,11 +12,6 @@ import (
 )
 
 func main() {
-	log.Println("Starting the application...")
-	// Load environment variables from .env file if not in production
-	log.Println("Loading environment variables...")
-	// Check if the ENV variable is set to production
-	log.Println(("ENV: " + os.Getenv("ENV")))
 	if os.Getenv("ENV") != "production" {
 		err := godotenv.Load()
 		if err != nil {
