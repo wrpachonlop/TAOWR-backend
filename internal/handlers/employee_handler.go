@@ -10,7 +10,7 @@ import (
 
 func GetEmployees(c *gin.Context) {
 	var employees []models.Employee
-	if err := db.DB.Find(&employees).Error; err != nil {
+	if err := db.DB.Preload("EmergencyContacts").Preload("Tools").Preload("Trucks").Find(&employees).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
