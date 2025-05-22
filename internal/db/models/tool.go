@@ -16,6 +16,7 @@ type Tool struct {
 	SerialNumber      string
 	MaintenancePeriod int              // in days
 	EmployeeID        uint             // Foreign key for Employee
+	Employee          Employee         // Relationship with Employee
 	AssignedAt        *time.Time       // Optional: Track when the tool was assigned to the employee
 	SupplierID        *uint            // Optional foreign key for Supplier
 	Supplier          *Supplier        // Relationship with Supplier

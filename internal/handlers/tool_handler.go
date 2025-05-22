@@ -10,7 +10,11 @@ import (
 
 func GetTools(c *gin.Context) {
 	var tools []models.Tool
-	if err := db.DB.Preload("Supplier").Preload("MaintenanceLogs").Find(&tools).Error; err != nil {
+	if err := db.DB.
+		Preload("Supplier").
+		Preload("MaintenanceLogs").
+		Preload("Employee"). // 👈 Add this line
+		Find(&tools).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
